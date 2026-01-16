@@ -10,18 +10,25 @@
   },
   "packageRules": [
     {
-      "matchManagers": [
-        "pip_requirements"
-      ],
-      "groupName": "requirements.txt",
-      "groupSlug": "pip-requirements"
+      "matchFileNames": ["**/requirements*.txt"],
+      "enabled": false
     },
     {
-      "matchManagers": [
-        "dockerfile"
-      ],
-      "groupName": "dockerfiles",
-      "groupSlug": "dockerfiles"
+      "matchManagers": ["poetry"],
+      "groupName": "poetry dependencies",
+      "groupSlug": "poetry-deps"
+    },
+    {
+      "matchCategories": ["docker"],
+      "groupName": "docker references",
+      "groupSlug": "docker-refs",
+      "pinDigests": true
+    },
+    {
+      "matchCategories": ["ci"],
+      "groupName": "ci references",
+      "groupSlug": "ci-refs",
+      "pinDigests": true
     }
   ]
 }
